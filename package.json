@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "cd server && npm i",
     "install": "cd client && npm i",
-    "buildclient": "cd client && start /min ng build --watch --deploy-url / --output-path ./dist/public",
-    "buildserver": "cd server && start /min npm run build:watch",
-    "startservermon": "cd server && nodemon --watch dist",
-    "startserver": "cd server && npm start"
+    "postinstall": "npm run dev",
+    "predev": "cd client && start /min ng build --watch --deploy-url / --output-path ./dist/public",
+    "dev": "cd server && start /min npm run build:watch",
+    "postdev": "cd server && nodemon --watch"
   },
   "repository": {
     "type": "git",
