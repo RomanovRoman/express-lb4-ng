@@ -27,4 +27,10 @@ export class ExpressServer {
     const host = this.lbApp.restServer.config.host || '127.0.0.1';
     this.server = this.app.listen(port, host);
   }
+
+  // For testing purposes
+  public async stop() {
+    if (!this.server) return;
+    this.server.close();
+  }
 }

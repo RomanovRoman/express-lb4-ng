@@ -1,33 +1,21 @@
-// import {ServerApplication} from '../..';
-// import {
-//   createRestAppClient,
-//   givenHttpServerConfig,
-//   Client,
-// } from '@loopback/testlab';
+import {ServerApplication} from '../../application';
+import {givenHttpServerConfig, Client, supertest} from '@loopback/testlab';
+import {ExpressServer} from '../../server';
 
-// export async function setupApplication(): Promise<AppWithClient> {
-//   const config = givenHttpServerConfig();
+export async function setupExpressApplication(): Promise<AppWithClient> {
+  const server = new ExpressServer({rest: givenHttpServerConfig()});
+  await server.boot();
+  await server.start();
 
-//   // Set host to `HOST` env var or ipv4 loopback interface
-//   // By default, docker container has ipv6 disabled.
-//   config.host = config.host || process.env.HOST || '127.0.0.1';
+  let lbApp = server.lbApp;
 
-//   // Set port to `PORT` env var or `0`
-//   config.port = config.port || +(process.env.PORT || 0);
+  const client = supertest('http://127.0.0.1:3000');
 
-//   const app = new ServerApplication({
-//     rest: config,
-//   });
+  return {server, client, lbApp};
+}
 
-//   await app.boot();
-//   await app.start();
-
-//   const client = createRestAppClient(app);
-
-//   return {app, client};
-// }
-
-// export interface AppWithClient {
-//   app: ServerApplication;
-//   client: Client;
-// }
+export interface AppWithClient {
+  server: ExpressServer;
+  client: Client;
+  lbApp: ServerApplication;
+}
