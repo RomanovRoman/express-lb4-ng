@@ -1,0 +1,21 @@
+<hr />
+<h3>Todos (from lb4 server)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Desc</th>
+      <th>isComplete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let todo of todos">
+      <td>{{ todo.id }}</td>
+      <td>{{ todo.title }}</td>
+      <td>{{ todo.desc }}</td>
+      <td>{{ todo.isComplete }}</td>
+    </tr>
+  </tbody>
+</table>
