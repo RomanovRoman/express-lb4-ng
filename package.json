@@ -10,7 +10,9 @@
     "postinstall": "npm run dev",
     "predev": "cd client && start /min ng build --watch --output-path ../server/dist/public",
     "dev": "cd server && start /min npm run build:watch",
-    "postdev": "cd server && nodemon --watch"
+    "postdev": "cd server && nodemon --watch",
+    "prebuild": "cd server && npm run build",
+    "build": "cd client && ng build --output-path ../dist/public"
   },
   "repository": {
     "type": "git",
