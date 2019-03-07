@@ -15,7 +15,7 @@ export class ExpressServer {
     // host lb4 @ /api
     this.app.use('/api', this.lbApp.requestHandler);
     // host angular files
-    this.app.use(express.static(path.resolve('../client/dist/public')));
+    this.app.use(express.static(path.resolve('./dist/public')));
   }
 
   public async boot() {
