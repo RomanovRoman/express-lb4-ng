@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 
-import {TodoService} from '../todo.service';
-import {Todo} from '../todo.model';
+import {Todos3GQL, Todos3} from '../graphql';
+
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-todos',
@@ -9,17 +11,13 @@ import {Todo} from '../todo.model';
   styleUrls: ['./todos.component.css'],
 })
 export class TodosComponent implements OnInit {
-  todos: Todo[] = [];
+  todos: Observable<Todos3.Query>;
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todos3GQL: Todos3GQL) {}
 
   ngOnInit() {
-    this.getTodos();
-  }
-
-  getTodos() {
-    this.todoService
-      .getTodos()
-      .subscribe(data => (this.todos = data), error => console.log(error));
+    this.todos = this.todos3GQL
+      .watch()
+      .valueChanges.pipe(map(todos => todos.data));
   }
 }

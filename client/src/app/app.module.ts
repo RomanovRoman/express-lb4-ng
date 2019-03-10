@@ -4,13 +4,13 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {TodoService} from './todo.service';
 import {TodosComponent} from './todos/todos.component';
+import {GraphQLModule} from './graphql.module';
 
 @NgModule({
   declarations: [AppComponent, TodosComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [TodoService],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, GraphQLModule],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

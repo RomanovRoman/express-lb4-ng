@@ -1,0 +1,13 @@
+schema:
+  - 'schema.json'
+documents:
+  - 'src/app/graphql/*.graphql'
+config: {}
+generates:
+  src/app/graphql/index.ts:
+    config: {}
+    plugins:
+      - 'typescript-common'
+      - 'typescript-client'
+      - 'typescript-apollo-angular'
+require: []
