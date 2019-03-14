@@ -23,7 +23,7 @@ export class ExpressServer {
     // can we obtain openapi.json from lbApp?  .getApiSpec() is empty at this point
     // openapi.json manually placed
     const myschema = JSON.parse(
-      fs.readFileSync(path.resolve('./dist/openapi.json'), 'utf8'),
+      fs.readFileSync(path.resolve('./bin/openapi.json'), 'utf8'),
     );
     createGraphQlSchema(myschema, {
       strict: false,
