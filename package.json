@@ -12,7 +12,7 @@
     "dev": "cd server && start /min npm run build:watch",
     "postdev": "cd server && nodemon --watch",
     "prebuild": "cd server && npm run build",
-    "build": "cd client && ng build --output-path ../dist/public"
+    "build": "cd client && ng build --output-path ../server/dist/public"
   },
   "repository": {
     "type": "git",
