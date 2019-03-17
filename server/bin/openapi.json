@@ -9,9 +9,7 @@
       "get": {
         "x-controller-name": "PingController",
         "x-operation-name": "ping",
-        "tags": [
-          "PingController"
-        ],
+        "tags": ["PingController"],
         "responses": {
           "200": {
             "description": "Ping Response",
@@ -43,16 +41,15 @@
               }
             }
           }
-        }
+        },
+        "operationId": "PingController.ping"
       }
     },
     "/todos/count": {
       "get": {
         "x-controller-name": "TodoController",
         "x-operation-name": "count",
-        "tags": [
-          "TodoController"
-        ],
+        "tags": ["TodoController"],
         "responses": {
           "200": {
             "description": "Todo model count",
@@ -80,16 +77,15 @@
               "type": "object"
             }
           }
-        ]
+        ],
+        "operationId": "TodoController.count"
       }
     },
     "/todos/{id}": {
       "put": {
         "x-controller-name": "TodoController",
         "x-operation-name": "replaceById",
-        "tags": [
-          "TodoController"
-        ],
+        "tags": ["TodoController"],
         "responses": {
           "204": {
             "description": "Todo PUT success"
@@ -114,14 +110,13 @@
             }
           },
           "x-parameter-index": 1
-        }
+        },
+        "operationId": "TodoController.replaceById"
       },
       "patch": {
         "x-controller-name": "TodoController",
         "x-operation-name": "updateById",
-        "tags": [
-          "TodoController"
-        ],
+        "tags": ["TodoController"],
         "responses": {
           "204": {
             "description": "Todo PATCH success"
@@ -146,14 +141,13 @@
             }
           },
           "x-parameter-index": 1
-        }
+        },
+        "operationId": "TodoController.updateById"
       },
       "get": {
         "x-controller-name": "TodoController",
         "x-operation-name": "findById",
-        "tags": [
-          "TodoController"
-        ],
+        "tags": ["TodoController"],
         "responses": {
           "200": {
             "description": "Todo model instance",
@@ -175,14 +169,13 @@
             },
             "required": true
           }
-        ]
+        ],
+        "operationId": "TodoController.findById"
       },
       "delete": {
         "x-controller-name": "TodoController",
         "x-operation-name": "deleteById",
-        "tags": [
-          "TodoController"
-        ],
+        "tags": ["TodoController"],
         "responses": {
           "204": {
             "description": "Todo DELETE success"
@@ -197,16 +190,15 @@
             },
             "required": true
           }
-        ]
+        ],
+        "operationId": "TodoController.deleteById"
       }
     },
     "/todos": {
       "post": {
         "x-controller-name": "TodoController",
         "x-operation-name": "create",
-        "tags": [
-          "TodoController"
-        ],
+        "tags": ["TodoController"],
         "responses": {
           "200": {
             "description": "Todo model instance",
@@ -227,14 +219,13 @@
               }
             }
           }
-        }
+        },
+        "operationId": "TodoController.create"
       },
       "patch": {
         "x-controller-name": "TodoController",
         "x-operation-name": "updateAll",
-        "tags": [
-          "TodoController"
-        ],
+        "tags": ["TodoController"],
         "responses": {
           "200": {
             "description": "Todo PATCH success count",
@@ -271,14 +262,13 @@
               }
             }
           }
-        }
+        },
+        "operationId": "TodoController.updateAll"
       },
       "get": {
         "x-controller-name": "TodoController",
         "x-operation-name": "find",
-        "tags": [
-          "TodoController"
-        ],
+        "tags": ["TodoController"],
         "responses": {
           "200": {
             "description": "Array of Todo model instances",
@@ -344,7 +334,8 @@
               "type": "object"
             }
           }
-        ]
+        ],
+        "operationId": "TodoController.find"
       }
     }
   },
@@ -371,9 +362,7 @@
             "type": "boolean"
           }
         },
-        "required": [
-          "title"
-        ]
+        "required": ["title"]
       }
     }
   }
