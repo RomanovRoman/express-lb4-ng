@@ -38,16 +38,16 @@ export interface TodoInput {
 // Documents
 // ====================================================
 
-export namespace Todos3 {
+export namespace Todos {
   export type Variables = {};
 
   export type Query = {
     __typename?: 'Query';
 
-    todos3: Maybe<(Maybe<Todos3>)[]>;
+    todoControllerFind: Maybe<(Maybe<TodoControllerFind>)[]>;
   };
 
-  export type Todos3 = {
+  export type TodoControllerFind = {
     __typename?: 'Todo';
 
     id: Maybe<number>;
@@ -76,10 +76,10 @@ import gql from 'graphql-tag';
 @Injectable({
   providedIn: 'root',
 })
-export class Todos3GQL extends Apollo.Query<Todos3.Query, Todos3.Variables> {
+export class TodosGQL extends Apollo.Query<Todos.Query, Todos.Variables> {
   document: any = gql`
-    query todos3 {
-      todos3 {
+    query todos {
+      todoControllerFind {
         id
         title
         desc

@@ -1,5 +1,5 @@
-query todos3 {
-  todos3 {
+query todos {
+  todoControllerFind {
     id
     title
     desc

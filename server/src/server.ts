@@ -30,6 +30,7 @@ export class ExpressServer {
       viewer: true,
       addSubOperations: true,
       fillEmptyResponses: true,
+      operationIdFieldNames: true,
     })
       .then(({schema}) => {
         this.app.use(

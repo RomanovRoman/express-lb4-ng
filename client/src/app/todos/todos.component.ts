@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Todos3GQL, Todos3} from '../graphql';
+import {TodosGQL, Todos} from '../graphql';
 
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -11,12 +11,12 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./todos.component.css'],
 })
 export class TodosComponent implements OnInit {
-  todos: Observable<Todos3.Query>;
+  todos: Observable<Todos.Query>;
 
-  constructor(private todos3GQL: Todos3GQL) {}
+  constructor(private todosGQL: TodosGQL) {}
 
   ngOnInit() {
-    this.todos = this.todos3GQL
+    this.todos = this.todosGQL
       .watch()
       .valueChanges.pipe(map(todos => todos.data));
   }
